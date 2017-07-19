@@ -1,0 +1,11 @@
+@import url("./components/App/app.css");
+@import url("./components/ComicBook/comic-book.css");
+@import url("./components/ComicBookList/comic-book-list.css");
+@import url("./components/Header/header.css");
+@import url("./components/Login/login.css");
+@import url("./components/Signup/signup.css");
+
+
+body {
+  background-color: red;
+}
