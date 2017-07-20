@@ -1,1 +1,3 @@
-###The Comic Connect
+### The Comic Connect
+
+In the minds of most people, comic books are only full of brightly colored, spandex-clad, super-powered heroes and villains. As a storytelling medium, comics are so much more. From historically accurate visual journeys into the horrors of war, to deep philosophical and spiritual discovery, to murder mystery noir, comics have branched far from their super-powered roots to explore the wide breadth of storytelling that is usually thought to be reserved for literature or film. Comic Connection is a comic book discovery portal to match a users interests with comics that they should check out. While this may include superhero books, the idea is to expose people to the ever growing medium and help them create a connection that highlights the power of the medium to tell stories both super and sublime.
