@@ -1,0 +1,19 @@
+.header {
+  background-image: url('../../assets/comicSketch.jpg');
+  background-size: cover;
+  height: 250px;
+}
+
+.logo-container {
+  margin: 0 auto;
+  background-color: rgba(194, 194, 194, 0.8);
+  width: 75%;
+  border-radius: 20%;
+}
+
+.logo {
+  color: rgba(130, 35, 19, 1);
+  font-size: 65px;
+  text-align: center;
+  font-family: 'Concert One', 'Open-sans';
+}

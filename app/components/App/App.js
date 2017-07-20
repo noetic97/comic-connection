@@ -14,14 +14,14 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <Route path='/login'
+        <Route path="/login"
                exact
                component={LoginContainer} />
-        <Route path='/signup'
+        <Route path="/signup"
                exact
                component={SignupContainer} />
         <ComicBookList />
       </div>
-    )
+    );
   }
 }

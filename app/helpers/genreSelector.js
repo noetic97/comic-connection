@@ -8,11 +8,11 @@ const genreList = {
   'War': 'concept/4015-56133',
   'Religion/Spirituality': 'concept/4015-56101',
   'Biography': 'concept/4015-57184',
-  'Superhero': 'concept/4015-49870'
-}
+  'Superhero': 'concept/4015-49870',
+};
 
 export const genre = (key) => {
-  if(genreList.key) {
-    console.log('i am a key ', key);;
+  if (genreList.key) {
+    console.log('i am a key ', key);
   }
-}
+};

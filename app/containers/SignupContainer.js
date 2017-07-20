@@ -10,7 +10,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     submitSignup: (signupCreds) => {
       dispatch(signupUser(signupCreds));
-    }
+    },
   };
 };
 

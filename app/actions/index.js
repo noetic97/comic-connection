@@ -1,7 +1,7 @@
 export const loginUser = (loginCreds) => {
   return {
     type: 'LOGIN_USER',
-    loginCreds
+    loginCreds,
   };
 };
 
@@ -14,6 +14,6 @@ export const logOutUser = () => {
 export const signupUser = (signupCreds) => {
   return {
     type: 'SIGNUP_USER',
-    signupCreds
-  }
-}
+    signupCreds,
+  };
+};
