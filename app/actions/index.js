@@ -7,6 +7,6 @@ export const loginUser = (loginCreds) => {
 
 export const logOutUser = () => {
   return {
-    type: 'LOGGED_OUT_USER',
+    type: 'LOGOUT_USER',
   };
 };
