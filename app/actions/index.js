@@ -10,3 +10,10 @@ export const logOutUser = () => {
     type: 'LOGOUT_USER',
   };
 };
+
+export const signupUser = (signupCreds) => {
+  return {
+    type: 'SIGNUP_USER',
+    signupCreds
+  }
+}
