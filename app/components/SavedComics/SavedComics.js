@@ -1,9 +1,9 @@
 import React from 'react';
 
 export const SavedComics = () => {
-  return(
+  return (
     <div>
       I'm a Saved Comic
     </div>
-  )
-}
+  );
+};

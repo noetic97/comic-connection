@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { func } from 'prop-types';
 
 export default class Login extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       email: '',
-      password: ''
+      password: '',
     };
   }
 
@@ -16,34 +17,38 @@ export default class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitLogin(this.state)
+    this.props.submitLogin(this.state);
     this.setState({
       email: '',
-      password: ''
-    })
+      password: '',
+    });
   }
 
   render() {
-    return(
+    return (
       <div className="login-component">
-        <form className='login-form'
+        <form className="login-form"
               onSubmit={(e) => this.handleSubmit(e)}>
           <h1>Login</h1>
-          <input type='email'
-                 className='login-email'
-                 placeholder='email'
+          <input type="email"
+                 className="login-email"
+                 placeholder="email"
                  value={this.state.email}
-                 name='email'
+                 name="email"
                  onChange={(e) => this.handleChange(e)}/>
-          <input type='password'
-                 className='login-password'
-                 placeholder='password'
+          <input type="password"
+                 className="login-password"
+                 placeholder="password"
                  value={this.state.password}
-                 name='password'
+                 name="password"
                  onChange={(e) => this.handleChange(e)}/>
-          <button className='login-submit'>Submit</button>
+          <button className="login-submit">Submit</button>
         </form>
       </div>
-    )
+    );
   }
 }
+
+Login.propTypes = {
+  submitLogin: func,
+};
