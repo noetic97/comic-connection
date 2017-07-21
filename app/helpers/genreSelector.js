@@ -11,8 +11,15 @@ const genreList = {
   'Superhero': 'concept/4015-49870',
 };
 
-export const genre = (key) => {
-  if (genreList.key) {
-    console.log('i am a key ', key);
-  }
+const randomizeGenre = (obj) => {
+  const genreArray = Object.keys(obj);
+  const randomNumber = Math.floor(Math.random() * genreArray.length);
+  return genreArray[randomNumber];
 };
+
+const genreReturn = (obj) => {
+  const key = randomizeGenre(obj);
+  return genreList[key] ? genreList[key] : null;
+};
+
+export const genre = genreReturn(genreList);
