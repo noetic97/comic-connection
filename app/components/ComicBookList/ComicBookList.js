@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import ComicBook from '../ComicBook/ComicBook';
 import { COMIC_URL } from '../../helpers/constants';
+import getRandomComics from '../../helpers/highlightedComics';
 
 export default class ComicBookList extends Component {
   constructor() {
     super();
+  }
+
+  componentDidMount() {
+    // console.log('hi');
+    // console.log(getRandomComics);
+    getRandomComics(COMIC_URL);
   }
 
   render() {
