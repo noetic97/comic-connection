@@ -1,4 +1,7 @@
 import { APIkey } from '../../apiKey';
 import { genre } from './genreSelector';
 
-export const COMIC_URL = `https://comicvine.gamespot.com/api/${genre}/?api_key=${APIkey}&format=json`;
+const BASE_URL = 'https://comicvine.gamespot.com/api/';
+const COMIC_URL = `${BASE_URL}${genre}/?api_key=${APIkey}&format=json`;
+
+export default COMIC_URL;

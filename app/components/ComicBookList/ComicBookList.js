@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ComicBook from '../ComicBook/ComicBook';
-import { COMIC_URL } from '../../helpers/constants';
+import COMIC_URL from '../../helpers/constants';
 import getRandomComics from '../../helpers/highlightedComics';
 
 export default class ComicBookList extends Component {
@@ -9,8 +9,6 @@ export default class ComicBookList extends Component {
   }
 
   componentDidMount() {
-    // console.log('hi');
-    // console.log(getRandomComics);
     getRandomComics(COMIC_URL);
   }
 
