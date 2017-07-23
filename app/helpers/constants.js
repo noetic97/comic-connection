@@ -1,7 +1,6 @@
 import { APIkey } from '../../apiKey';
-import { genre } from './genreSelector';
+import { randomGenre, selectedVolume } from './genreSelector';
 
 const BASE_URL = 'https://comicvine.gamespot.com/api/';
-const COMIC_URL = `${BASE_URL}${genre}/?api_key=${APIkey}&format=json`;
-
-export default COMIC_URL;
+export const RANDOM_COMIC_URL = `${BASE_URL}${randomGenre}/?api_key=${APIkey}&format=json`;
+export const SELECTED_COMIC_URL = `${BASE_URL}${selectedVolume}/?api_key=${APIkey}&format=json`;

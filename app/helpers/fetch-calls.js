@@ -1,4 +1,4 @@
-const getRandomComics = (url) => {
+export const getRandomComics = (url) => {
   const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
   fetch(proxyUrl + url)
   .then(res => res.json())
@@ -9,19 +9,16 @@ const getRandomComics = (url) => {
 const cleanComics = (comicObj) => {
   if (comicObj.error === 'OK') {
     const comicBook = comicObj.results;
-    const cbName = comicBook.name;
-    const cbArray = comicBook.volume_credits
-
     console.log(comicBook);
-    console.log(cbName);
-    console.log(cbArray);
   } else {
-    console.log(comicObj);
+    console.log('I am broken');
   }
-}
+};
 
-const getCuratedComics = (url) => {
-  
-}
-
-export default getRandomComics;
+export const getCuratedComics = (url) => {
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  fetch(proxyUrl + url)
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
+};

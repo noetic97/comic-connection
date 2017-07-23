@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ComicBook from '../ComicBook/ComicBook';
-import COMIC_URL from '../../helpers/constants';
-import getRandomComics from '../../helpers/highlightedComics';
+import { RANDOM_COMIC_URL, SELECTED_COMIC_URL } from '../../helpers/constants';
+import { getRandomComics, getCuratedComics, apiCall } from '../../helpers/fetch-calls';
 
 export default class ComicBookList extends Component {
   constructor() {
@@ -9,7 +9,9 @@ export default class ComicBookList extends Component {
   }
 
   componentDidMount() {
-    getRandomComics(COMIC_URL);
+    getRandomComics(RANDOM_COMIC_URL);
+    console.log('apicall', apiCall);
+    // getCuratedComics(SELECTED_COMIC_URL);
   }
 
   render() {

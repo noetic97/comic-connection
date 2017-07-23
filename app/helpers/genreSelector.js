@@ -103,41 +103,41 @@ const curatedGenres = {
     'Deadly Class': 'volume/4050-71032',
   },
   'Religion/Spirituality': {
-    'The Wicked The Divine': 'volume',
-    'Promethea': 'volume',
-    'The Goddamned': 'volume',
-    'Y: The Last Man': 'volume',
-    'Testament': 'volume',
-    'The Contract with God Trilogy': 'volume',
-    'Punk Rock Jesus': 'volume',
-    'Boxers and Saints': 'volume',
-    'Underwater Welder': 'volume',
-    'Preacher': 'volume',
+    'The Wicked The Divine': 'volume/4050-74863',
+    'Promethea': 'volume/4050-6568',
+    'The Goddamned': 'volume/4050-85946',
+    'Y: The Last Man': 'volume/4050-9419',
+    'Testament': 'volume/4050-18642',
+    'The Contract with God Trilogy': 'volume/4050-99880',
+    'Punk Rock Jesus': 'volume/4050-50385',
+    'Boxers & Saints': 'volume/4050-67244',
+    'Underwater Welder': 'volume/4050-50771',
+    'Preacher': 'volume/4050-5516',
   },
   'Auto/Biography': {
     'Blankets': 'volume/4050-20940',
-    'Nothing Lasts Forever': 'volume',
-    'American Splendor': 'volume',
-    'Sentences: The Life of MF Grimm': 'volume',
-    'Persepolis': 'volume',
-    'Fun Home': 'volume',
-    'Stitches': 'volume',
-    'Malcom X': 'volume',
-    'Logicomix': 'volume',
-    'Laika': 'volume',
+    'Nothing Lasts Forever': 'volume/4050-101949',
+    'American Splendor': 'volume/4050-28361',
+    'Sentences: The Life of MF Grimm': 'volume/4050-25608',
+    'Persepolis': 'volume/4050-23005',
+    'Fun Home': 'volume/4050-34160',
+    'Stitches': 'volume/4050-39674',
+    'Malcom X': 'volume/4050-68514',
+    'Logicomix': 'volume/4050-36445',
+    'Laika': 'volume/4050-49576',
   },
   'Comedy': {
-    'I Hate Fairyland': 'volume',
-    'Jughead': 'volume',
-    'Chew': 'volume',
-    'Scurvy Dogs': 'volume',
-    'Bone': 'volume',
-    'The Flinstones': 'volume',
-    'Milk and Cheese': 'volume',
-    'Futurama': 'volume',
-    'Groo': 'volume',
-    'Giant Days': 'volume',
-    'Ghosts': 'volume',
+    'I Hate Fairyland': 'volume/4050-85292',
+    'Jughead': 'volume/4050-91893',
+    'Chew': 'volume/4050-26611',
+    'Scurvy Dogs': 'volume/4050-23974',
+    'Bone': 'volume/4050-6082',
+    'The Flinstones': 'volume/4050-92026',
+    'Milk and Cheese': 'volume/4050-18362',
+    'Futurama': 'volume/4050-18364',
+    'Groo': 'volume/4050-3508',
+    'Giant Days': 'volume/4050-80753',
+    'Ghosts': 'volume/4050-94093',
   },
   'Children': {
     'Goldie Vance': 'volume/4050-89593',
@@ -154,16 +154,16 @@ const curatedGenres = {
     'Abigail and the Snowman': 'volume/4050-79161',
   },
   'Superhero': {
-    'Astro City': 'volume',
-    'Invincible': 'volume',
-    'Watchmen': 'volume',
-    'Planetary': 'volume',
-    'Copra': 'volume',
-    'Black Hammer': 'volume',
-    'All-Star Superman': 'volume',
-    'Marvels': 'volume',
-    'Powers': 'volume',
-    'Hellboy': 'volume',
+    'Astro City': 'volume/4050-62857',
+    'Invincible': 'volume/4050-17993',
+    'Watchmen': 'volume/4050-29927',
+    'Planetary': 'volume/4050-7506',
+    'Copra': 'volume/4050-62603',
+    'Black Hammer': 'volume/4050-92354',
+    'All-Star Superman': 'volume/4050-18139',
+    'Marvels': 'volume/4050-5313',
+    'Powers': 'volume/4050-18034',
+    'Hellboy': 'volume/4050-33634',
   },
 };
 
@@ -175,7 +175,41 @@ const randomizeGenre = (obj) => {
 
 const genreReturn = (obj) => {
   const key = randomizeGenre(obj);
-  return genreList[key] ? genreList[key] : null;
+  return obj[key] ? obj[key] : null;
 };
 
-export const genre = genreReturn(genreList);
+export const randomGenre = genreReturn(genreList);
+
+
+const selectedGenre = (obj) => {
+  const selectedKeys = Object.keys(obj);
+  console.log(selectedKeys);
+  return selectedKeys;
+};
+
+export const selectedGenreList = selectedGenre(curatedGenres);
+
+const drama = {
+  'I Kill Giants': 'volume/4050-22279',
+  'daytripper': 'volume/4050-30319',
+  'Black Hole': 'volume/4050-21545',
+  'Noble Causes': 'volume/4050-11274',
+  'One More Year': 'volume/4050-101649',
+  'Vision': 'volume/4050-85793',
+  '100 Bullets': 'volume/4050-6306',
+  'Mother Come Home': 'volume/4050-65410',
+  'Locke & Key': 'volume/4050-61779',
+  'Morning Glories': 'volume/4050-34852',
+};
+
+const checkSelectedGenre = (obj) => {
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  const selectedKeys = Object.keys(obj);
+  selectedKeys.map((comic) => {
+    fetch(proxyUrl + `https://comicvine.gamespot.com/api/${obj[comic]}/?api_key=580e163d8ac98b1ffac84a2d62f73ecda71a448e&format=json`)
+    .then(res => res.json())
+    .then(data => console.log(data.results.name));
+  });
+};
+
+export const apiCall = checkSelectedGenre(drama);
