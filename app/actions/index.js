@@ -17,3 +17,10 @@ export const signupUser = (signupCreds) => {
     signupCreds,
   };
 };
+
+export const getSelectedComics = (selectedGenre) => {
+  return {
+    type: 'GET_COMICS',
+    selectedGenre,
+  };
+};

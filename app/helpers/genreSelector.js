@@ -15,12 +15,12 @@ const genreList = {
   'Adult': 'concept/4015-56064',
 };
 
-const curatedGenres = {
+export const curatedGenres = {
   'Science-Fiction': {
     'Fear Agent': 'volume/4050-20725',
     'Saga': 'volume/4050-46568',
     'Y the Last Man': 'volume/4050-9419',
-    'We3': 'volume/4060-47907',
+    'We3': 'volume/4050-18010',
     'Bitch Planet': 'volume/4050-78698',
     'Lazarus': 'volume/4050-64204',
     'Mind MGMT': 'volume/4050-49191',
@@ -50,7 +50,7 @@ const curatedGenres = {
     '100 Bullets': 'volume/4050-6306',
     'Mother Come Home': 'volume/4050-65410',
     'Locke & Key': 'volume/4050-61779',
-    'Morning Glories': 'volume/4060-57716',
+    'Morning Glories': 'volume/4050-39321',
   },
   'Mystery': {
     'Alias': 'volume/4050-9452',
@@ -180,36 +180,34 @@ const genreReturn = (obj) => {
 
 export const randomGenre = genreReturn(genreList);
 
-
-const selectedGenre = (obj) => {
-  const selectedKeys = Object.keys(obj);
-  console.log(selectedKeys);
-  return selectedKeys;
+export const findGenre = (string, obj) => {
+  if (string === 'Random') {
+    randomGenre;
+  } else {
+    const genreMatch = Object.keys(obj).filter((word) => {
+      return word === string;
+    });
+    const genreObj = genreMatch.map((el) => obj[el]);
+    return genreObj;
+  }
 };
 
-export const selectedGenreList = selectedGenre(curatedGenres);
 
-const drama = {
-  'I Kill Giants': 'volume/4050-22279',
-  'daytripper': 'volume/4050-30319',
-  'Black Hole': 'volume/4050-21545',
-  'Noble Causes': 'volume/4050-11274',
-  'One More Year': 'volume/4050-101649',
-  'Vision': 'volume/4050-85793',
-  '100 Bullets': 'volume/4050-6306',
-  'Mother Come Home': 'volume/4050-65410',
-  'Locke & Key': 'volume/4050-61779',
-  'Morning Glories': 'volume/4050-34852',
-};
-
-const checkSelectedGenre = (obj) => {
+export const fetchSelectedGenre = (obj) => {
   const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
   const selectedKeys = Object.keys(obj);
-  selectedKeys.map((comic) => {
-    fetch(proxyUrl + `https://comicvine.gamespot.com/api/${obj[comic]}/?api_key=580e163d8ac98b1ffac84a2d62f73ecda71a448e&format=json`)
+  const arrayOfPromises = selectedKeys.map((comic) => {
+    return fetch(proxyUrl + `https://comicvine.gamespot.com/api/${obj[comic]}/?api_key=580e163d8ac98b1ffac84a2d62f73ecda71a448e&format=json`)
     .then(res => res.json())
-    .then(data => console.log(data.results.name));
-  });
+  })
+  return Promise.all(arrayOfPromises)
+  .then(comicArray => comicArray.map((comic) => {
+    const firstComic = comic.results.issues[0].api_detail_url;
+    const firstIssueArray =  fetch(proxyUrl + firstComic + '?api_key=580e163d8ac98b1ffac84a2d62f73ecda71a448e&format=json')
+    .then(res => res.json())
+    console.log(firstIssueArray);
+    // .then(data = console.log(data))
+    return Promise.all(firstIssueArray)
+    .then(issue => console.log(issue.results.image.super_url))
+  }))
 };
-
-export const apiCall = checkSelectedGenre(drama);
