@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import ComicBookList from '../ComicBookList/ComicBookList';
 import LoginContainer from '../../containers/LoginContainer';
 import SignupContainer from '../../containers/SignupContainer';
+import ComicBookListContainer from '../../containers/ComicBookListContainer';
 
 export default class App extends Component {
   constructor() {
@@ -20,7 +21,7 @@ export default class App extends Component {
         <Route path="/signup"
                exact
                component={SignupContainer} />
-        <ComicBookList />
+        <ComicBookListContainer />
       </div>
     );
   }
