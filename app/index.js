@@ -5,10 +5,11 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
+import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer';
 
 const history = createHistory();
-const middleWare = [routerMiddleware(history)];
+const middleWare = [routerMiddleware(history), thunk];
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 const store = createStore(

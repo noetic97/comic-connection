@@ -1,3 +1,5 @@
+
+
 export const getRandomComics = (url) => {
   const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
   fetch(proxyUrl + url)

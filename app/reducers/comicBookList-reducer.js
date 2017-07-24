@@ -3,10 +3,13 @@ import { fetchSelectedGenre, findGenre, curatedGenres } from '../helpers/genreSe
 export const comicBookArray = (state = [], action) => {
   switch (action.type) {
   case 'GET_COMICS':
-    const genreObj = findGenre(action.selectedGenre, curatedGenres);
-    const comicArray = fetchSelectedGenre(genreObj[0]);
+  console.log(state, 'state');
+      const genreObj = findGenre(action.selectedGenre, curatedGenres);
+      const comicArray = fetchSelectedGenre(genreObj[0])
+      .then(comicBooks => console.log(state.push(comicBooks), 'state push'))
+      console.log(comicArray, 'ca');
+      return comicArray
 
-    return comicArray;
   default:
     return state;
   }
