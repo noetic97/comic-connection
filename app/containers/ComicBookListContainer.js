@@ -1,18 +1,22 @@
 import { connect } from 'react-redux';
-import { getSelectedComics } from '../actions';
+import { returnGenre, fetchComics } from '../actions';
 import ComicBookList from '../components/ComicBookList/ComicBookList';
 
 const mapStateToProps = (state) => {
   return {
     genreTitle: 'Random',
     comicBookArray: [],
+    selectedGenre: state.selectedGenre
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getComicBooks: (string) => {
-      dispatch(getSelectedComics(string));
+    getComicBooks: (obj) => {
+      dispatch(fetchComics(obj));
+    },
+    getGenre: (string) => {
+      dispatch(returnGenre(string));
     },
   };
 };

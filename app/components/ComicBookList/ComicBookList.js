@@ -16,7 +16,9 @@ export default class ComicBookList extends Component {
 
   handleChange(e) {
     const genreTitle = e.target.value;
-    this.props.getComicBooks(genreTitle);
+    console.log(this.props);
+    this.props.getComicBooks(genreTitle)
+    // this.props.getComicBooks(this.props.selectedGenre);
   }
 
   render() {
