@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ComicBook from '../ComicBook/ComicBook';
-import { RANDOM_COMIC_URL, SELECTED_COMIC_URL } from '../../helpers/constants';
-import { getRandomComics, getCuratedComics, apiCall } from '../../helpers/fetch-calls';
+import { func } from 'prop-types';
 
 export default class ComicBookList extends Component {
   constructor() {
@@ -9,16 +8,14 @@ export default class ComicBookList extends Component {
   }
 
   componentDidMount() {
-    // getRandomComics(RANDOM_COMIC_URL);
+    // getAdditionalRandomComics(RANDOM_COMIC_URL);
     // console.log('apicall', apiCall);
     // getCuratedComics(SELECTED_COMIC_URL);
   }
 
   handleChange(e) {
     const genreTitle = e.target.value;
-    console.log(this.props);
-    this.props.getComicBooks(genreTitle)
-    // this.props.getComicBooks(this.props.selectedGenre);
+    this.props.getComicBooks(genreTitle);
   }
 
   render() {
@@ -59,3 +56,7 @@ export default class ComicBookList extends Component {
     );
   }
 }
+
+ComicBookList.propTypes = {
+  getComicBooks: func,
+};

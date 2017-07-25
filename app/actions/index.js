@@ -1,5 +1,4 @@
-import { fetchSelectedGenre, findGenre } from '../helpers/genreSelector';
-import { curatedGenres } from '../helpers/constants';
+import { fetchSelectedGenre } from '../helpers/fetch-calls';
 
 export const fetchComics = (obj) => {
   return (dispatch) => {
@@ -10,19 +9,11 @@ export const fetchComics = (obj) => {
 };
 
 export const comicBookArray = (comics) => {
-  console.log(comics);
   return {
     type: 'ADD_COMICS_TO_STORE',
     comics,
   };
 };
-
-// export const returnGenre = (selectedGenre) => {
-//   return {
-//     type: 'GET_GENRE',
-//     selectedGenre,
-//   };
-// };
 
 export const loginUser = (loginCreds) => {
   return {

@@ -4,9 +4,7 @@ import ComicBookList from '../components/ComicBookList/ComicBookList';
 
 const mapStateToProps = (state) => {
   return {
-    genreTitle: 'Random',
-    comicBookArray: [],
-    selectedGenre: state.selectedGenre
+    selectedGenre: state.selectedGenre,
   };
 };
 

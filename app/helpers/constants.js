@@ -1,11 +1,29 @@
 import { APIkey } from '../../apiKey';
-import { randomGenre, selectedVolume } from './genreSelector';
+import { randomGenre } from './fetch-calls';
 
-const BASE_URL = 'https://comicvine.gamespot.com/api/';
-const API = '/?api_key=' + APIkey + '&format=json';
+export const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
+export const BASE_URL = 'https://comicvine.gamespot.com/api/';
+export const API = '/?api_key=' + APIkey + '&format=json';
 
 export const RANDOM_COMIC_URL = `${BASE_URL}${randomGenre}${API}`;
-export const SELECTED_COMIC_URL = `${BASE_URL}${selectedVolume}${API}`;
+// export const SELECTED_COMIC_URL = `${BASE_URL}${selectedVolume}${API}`;
+
+export const randomGenreList = {
+  'Science-Fiction': 'concept/4015-56103',
+  'Romance': 'concept/4015-56132',
+  'Mystery': 'concept/4015-55842',
+  'Horror': 'concept/4015-55939',
+  'History': 'concept/4015-55924',
+  'Fantasy': 'concept/4015-56043',
+  'Fantasy2': 'concept/4015-55884',
+  'Drama': 'concept/4015-56132',
+  'Religion/Spirituality': 'concept/4015-56101',
+  'Biography': 'concept/4015-57184',
+  'Superhero': 'concept/4015-49870',
+  'Dark-Comedy': 'concept/4015-56054',
+  'Parody': 'concept/4015-55693',
+  'Adult': 'concept/4015-56064',
+};
 
 export const curatedGenres = {
   'Science-Fiction': {
