@@ -35,7 +35,7 @@ export default class Login extends Component {
       <div className="signup-component">
         <form className="signup-form"
               onSubmit={(e) => this.handleSubmit(e)}>
-          <h1>Create an Account</h1>
+          <h1 className="signup-title">Create an Account</h1>
           <input type="text"
                  className="signup-name"
                  placeholder="Name"

@@ -29,7 +29,7 @@ export default class Login extends Component {
       <div className="login-component">
         <form className="login-form"
               onSubmit={(e) => this.handleSubmit(e)}>
-          <h1>Login</h1>
+          <h1 className="login-title">Login</h1>
           <input type="email"
                  className="login-email"
                  placeholder="email"

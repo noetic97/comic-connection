@@ -1,0 +1,7 @@
+.comic-display {
+  display: grid;
+  grid-row-gap: 40px;
+  grid-column-gap: 25px;
+  grid-template-columns: 20% 20% 20% 20%;
+  margin: 0 auto;
+}
