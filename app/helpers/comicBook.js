@@ -1,8 +1,9 @@
 class ComicBook {
-  constructor(title, description, cover) {
+  constructor(title, description, cover, id) {
     this.title = title;
     this.description = description;
     this.cover = cover;
+    this.id = id;
   }
 }
 

@@ -4,17 +4,14 @@ import ComicBookList from '../components/ComicBookList/ComicBookList';
 
 const mapStateToProps = (state) => {
   return {
-    selectedGenre: state.selectedGenre,
+    comics: state.comics,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getComicBooks: (obj) => {
-      dispatch(fetchComics(obj));
-    },
-    getGenre: (string) => {
-      dispatch(returnGenre(string));
+    getComicBooks: (genre) => {
+      dispatch(fetchComics(genre));
     },
   };
 };

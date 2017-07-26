@@ -1,8 +1,9 @@
 import { fetchSelectedGenre } from '../helpers/fetch-calls';
 
-export const fetchComics = (obj) => {
+export const fetchComics = (genre) => {
   return (dispatch) => {
-    fetchSelectedGenre(obj)
+    fetchSelectedGenre(genre)
+    .then(res => Promise.all(res))
     .then(items => dispatch(comicBookArray(items)))
     .catch(err => console.log(err));
   };
