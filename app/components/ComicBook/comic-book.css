@@ -2,17 +2,19 @@
   height: 575px;
   width: 300px;
   margin: 25px;
-  text-align: center;
   position: relative;
 }
 
 .comic-title {
   color: rgb(130, 35, 19);
   font-size: 30px;
+  height: 75px;
+  text-align: center;
 }
 
 .comic-cover {
   width: 275px;
+  height: 420px;
   margin-bottom: 15px;
 }
 

@@ -1,0 +1,46 @@
+.login-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
+  /*animation: growBox-login .5s;*/
+}
+
+.login-form {
+  background-color: rgba(194, 194, 194, 0.8);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.login-title {
+  text-align: center;
+}
+
+.login-email,
+.login-password {
+  margin: 20px;
+  width: 250px;
+  height: 30px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+button.login-submit {
+  color: #fff;
+  font-size: 14px;
+  width: 80px;
+  height: 40px;
+  border: none;
+  background-color: #3d6481;
+  margin-left: 10px;
+  border-radius: 8px;
+  outline: none;
+  transition: 150ms;
+  margin: 15px auto;
+}
+
+button:hover.login-submit {
+  cursor: pointer;
+  background-color: #5281a4;
+}

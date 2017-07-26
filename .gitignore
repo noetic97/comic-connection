@@ -57,6 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# webpack builds
+bundle.js
 
 # API keys
 apiKey.js
