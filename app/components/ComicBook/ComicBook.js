@@ -1,14 +1,16 @@
 import React from 'react';
 
-const ComicBook = () => {
+const ComicBook = (props) => {
   return (
     <div className="comic-book-card">
-      <h3>Comic Book Title</h3>
+      <h3 className="comic-title">{props.comic.title}</h3>
       <div>
-        <img src="https://static.comicvine.com/uploads/scale_large/0/4/15390-1472-17156-1-our-army-at-war.jpg" alt="comic book cover"/>
+        <img src={props.comic.cover}
+             alt="comic book cover"
+             className="comic-cover"/>
         <div>
-          <p>
-            I am a description of this comic book.  Hi!
+          <p className="comic-description">
+            {props.comic.description}
           </p>
         </div>
       </div>

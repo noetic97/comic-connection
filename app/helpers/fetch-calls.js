@@ -9,37 +9,57 @@ const findGenre = (string, obj) => {
   return genreObj;
 };
 
+const randomizeGenre = (obj) => {
+  const genreArray = Object.keys(obj);
+  const randomNumber = Math.floor(Math.random() * genreArray.length);
+  return genreArray[randomNumber];
+};
+
 export const fetchSelectedGenre = (genre) => {
-  const selectedComic = findGenre(genre, curatedGenres);
+  const randomGenre = randomizeGenre(curatedGenres);
+  const selectedComic = (genre !== 'Random')
+                      ? findGenre(genre, curatedGenres)
+                      : findGenre(randomGenre, curatedGenres);
   const selectedKeys = Object.keys(selectedComic[0]);
   const arrayOfPromises = selectedKeys.map((comic) => {
     return fetch(PROXY_URL + BASE_URL + selectedComic[0][comic] + API)
     .then(res => res.json());
   });
   return Promise.all(arrayOfPromises)
-  .then(comicArray => {
-    return comicArray.map((comic) => {
-      const name = comic.results.name;
-      const description = comic.results.description
-                        ? comic.results.description.replace(/<[^>]+>/g, '')
-                        : '';
-      const comicBooks = new ComicBook(name, description);
-      return comicBooks;
-    });
+  .then(comicArray => returnComics(comicArray));
+};
+
+
+const returnComics = (array) => {
+  return array.map((comic) => {
+    const firstComic = comic.results.issues[0].api_detail_url;
+    return fetch(PROXY_URL + firstComic + API)
+    .then(res => res.json())
+    .then(data => createComics(data));
   });
 };
 
-const imageArray = () => {
-  comicArray.map((comic) => {
-    const firstComic = comic.results.issues[0].api_detail_url;
-    const firstIssueArray = fetch(proxyUrl + firstComic + '?api_key=580e163d8ac98b1ffac84a2d62f73ecda71a448e&format=json')
-    .then(res => res.json())
-    console.log(firstIssueArray, 'fi array');
-    // .then(data = console.log(data))
-    return Promise.all(firstIssueArray)
-    .then(issue => console.log(issue.results.image.super_url))
-  })
-}
+
+const createComics = (comic) => {
+  const name = comic.results.volume.name;
+  const description = comic.results.description
+                    ? comic.results.description.replace(/<[^>]+>/g, '')
+                    : '';
+  const id = comic.results.volume.id;
+  const cover = comic.results.image.super_url;
+  const comicBooks = new ComicBook(name, description, cover, id);
+  return comicBooks;
+};
+
+// comicArray.map((comic) => {
+//   const firstComic = comic.results.issues[0].api_detail_url;
+//   const firstIssueArray = fetch(proxyUrl + firstComic + '?api_key=580e163d8ac98b1ffac84a2d62f73ecda71a448e&format=json')
+//   .then(res => res.json())
+//   console.log(firstIssueArray, 'fi array');
+//   // .then(data = console.log(data))
+//   return Promise.all(firstIssueArray)
+//   .then(issue => console.log(issue.results.image.super_url))
+// })
 
 // export const getAdditionalRandomComics = (url) => {
 //   debugger;

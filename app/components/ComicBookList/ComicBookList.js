@@ -8,9 +8,7 @@ export default class ComicBookList extends Component {
   }
 
   componentDidMount() {
-    // getAdditionalRandomComics(RANDOM_COMIC_URL);
-    // console.log('apicall', apiCall);
-    // getCuratedComics(SELECTED_COMIC_URL);
+    this.props.getComicBooks('Random');
   }
 
   handleChange(e) {
@@ -19,6 +17,11 @@ export default class ComicBookList extends Component {
   }
 
   render() {
+    const comicArray = this.props.comics.map((comic) => {
+      return <ComicBook history={ this.props.history }
+                        comic={ comic }
+                        key={ comic.id }/>;
+    });
     return (
       <div>
         <select name="comic-genres"
@@ -51,7 +54,7 @@ export default class ComicBookList extends Component {
                   name="Superhero">Superhero</option>
         </select>
         <button>Get New Comics</button>
-        <ComicBook />
+        {comicArray}
       </div>
     );
   }
