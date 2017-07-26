@@ -1,3 +1,23 @@
-h1 {
-  color: blue;
+.comic-book-card {
+  height: 575px;
+  width: 300px;
+  margin: 25px;
+  text-align: center;
+  position: relative;
+}
+
+.comic-title {
+  color: rgb(130, 35, 19);
+  font-size: 30px;
+}
+
+.comic-cover {
+  width: 275px;
+  margin-bottom: 15px;
+}
+
+.comic-description {
+  height: 75px;
+  overflow: scroll;
+  margin-bottom: 25px;
 }

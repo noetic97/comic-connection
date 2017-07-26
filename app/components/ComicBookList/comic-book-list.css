@@ -1,0 +1,4 @@
+.comic-display {
+  display: grid;
+  grid-row-gap: 40px;
+}

@@ -54,7 +54,9 @@ export default class ComicBookList extends Component {
                   name="Superhero">Superhero</option>
         </select>
         <button>Get New Comics</button>
-        {comicArray}
+        <div className="comic-display">
+          {comicArray}
+        </div>
       </div>
     );
   }
