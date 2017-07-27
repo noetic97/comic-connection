@@ -2,8 +2,9 @@
   height: 575px;
   width: 300px;
   margin: 25px;
-  position: relative;
+  /*position: relative;*/
 }
+
 
 .comic-title {
   color: rgb(130, 35, 19);
@@ -16,10 +17,37 @@
   width: 275px;
   height: 420px;
   margin-bottom: 15px;
+  box-shadow: 0px 20px 100px rgba(0,0,0,.4),
+              1px 0 rgb(251, 242, 245),
+              1.1px 0 rgba(0, 0, 0, .7),
+              2px 0 rgb(251, 242, 215),
+              2.1px 0 rgba(0, 0, 0, .7),
+              3px 0 rgb(251, 242, 175),
+              3.1px 0 rgba(0, 0, 0, .7),
+              4px 0 rgb(251, 242, 145),
+              4.1px 0 rgba(0, 0, 0, .7);
+  transition: 200ms;
+  /*border-right: 1px solid rgb(251, 242, 245);*/
+  position: relative;
+}
+
+.comic-cover:hover {
+  cursor: pointer;
+  box-shadow: 0px 20px 100px rgba(0, 0, 0, .8),
+              1px 0 rgb(251, 242, 245),
+              1.1px 0 rgba(0, 0, 0, .7),
+              2px 0 rgb(251, 242, 215),
+              2.1px 0 rgba(0, 0, 0, .7),
+              3px 0 rgb(251, 242, 175),
+              3.1px 0 rgba(0, 0, 0, .7),
+              4px 0 rgb(251, 242, 145),
+              4.1px 0 rgba(0, 0, 0, .7);
+  transform: scale(1.02);
 }
 
 .comic-description {
   height: 75px;
   overflow: scroll;
   margin-bottom: 25px;
+  font-size: 20px;
 }

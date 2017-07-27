@@ -16,6 +16,26 @@ app.get('/api/v1/users', (request, response) => {
     });
 });
 
+app.post('/api/v1/users', (request, response) => {
+  console.log(request, 'request');
+  const newUser = request.body;
+
+  for (const requiredParameter of ['name', 'username', 'email', 'password' ]) {
+    if (!newUser[requiredParameter]) {
+      return response
+      .status(422)
+      .send({error: `Expected format: { name: <String>, username: <String>, email: <String>, password: <String>}. You're missing a "${requiredParameter}" property.`});
+    }
+  }
+  database('users').insert(newUser, 'id')
+    .then((newUser) => {
+      response.status(201).json({ id: newUser[0] });
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
 app.get('/api/v1/favorites', (request, response) => {
   database('favorites').select()
     .then((favorites) => {

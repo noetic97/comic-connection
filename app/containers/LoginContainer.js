@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { loginUser } from '../actions';
+import { postLoginUser } from '../actions';
 import Login from '../components/Login/Login';
 
 const mapStateToProps = (state) => {
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     submitLogin: (loginCreds) => {
-      dispatch(loginUser(loginCreds));
+      dispatch(postLoginUser(loginCreds));
     },
   };
 };

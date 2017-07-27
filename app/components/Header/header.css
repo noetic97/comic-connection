@@ -7,7 +7,7 @@
 .logo-container {
   margin: 0 auto;
   background-color: rgba(194, 194, 194, 0.8);
-  width: 75%;
+  width: 55%;
   border-radius: 30%;
 }
 
@@ -16,4 +16,55 @@
   font-size: 65px;
   text-align: center;
   font-family: 'Concert One', 'Open-sans';
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.nav-link-box {
+  margin-top: 60px;
+  padding-top: 10px;
+  height: 50px;
+  border-radius: 20px;
+  align-items: baseline;
+  font-size: 25px;
+  font-weight: 700;
+  background-color: #3d6481;
+}
+
+.nav-link {
+  color: rgba(130, 35, 19, 1);
+  padding: 25px;
+}
+
+.nav-link:hover {
+  color: red;
+}
+
+.user-cred-buttons {
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  justify-content: space-between;
+  height:90px;
+}
+
+.header-button {
+  color: #fff;
+  font-size: 14px;
+  width: 80px;
+  height: 40px;
+  border: none;
+  background-color: #3d6481;
+  border-radius: 8px;
+  outline: none;
+  transition: 150ms;
+}
+
+.header-button:hover {
+  cursor: pointer;
+  background-color: #5281a4;
 }
