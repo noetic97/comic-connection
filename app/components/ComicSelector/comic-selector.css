@@ -1,0 +1,12 @@
+.genre-selector {
+  display: flex;
+  justify-content: center;
+}
+
+.comic-genres,
+.get-comics-button {
+  margin: 20px;
+  padding: 5px;
+  font-size: 20px;
+}
+  

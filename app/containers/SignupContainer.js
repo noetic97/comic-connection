@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signupUser } from '../actions';
+import { postSignupUser } from '../actions';
 import Signup from '../components/Signup/Signup';
 
 const mapStateToProps = (state) => {
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     submitSignup: (signupCreds) => {
-      dispatch(signupUser(signupCreds));
+      dispatch(postSignupUser(signupCreds));
     },
   };
 };
