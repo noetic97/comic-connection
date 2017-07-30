@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
 import ComicBook from '../ComicBook/ComicBook';
 import Loader from '../Loader/Loader';
 import ComicSelectorContainer from '../../containers/ComicSelectorContainer';
@@ -15,14 +16,23 @@ export default class ComicBookList extends Component {
                         comic={ comic }
                         key={ comic.id } />;
     });
-    const view = this.props.isLoading ? <Loader /> : comicArray;
-    const genreTitle = (comicArray.length) ? comicArray[0].props.comic.comicGenre : null;
+    const view = this.props.isLoading
+               ? <Loader key={Math.random()}/>
+               : comicArray;
+    const genreTitle = (comicArray.length)
+                     ? comicArray[0].props.comic.comicGenre
+                     : null;
     return (
       <div>
         <ComicSelectorContainer />
         <h2 className="genre-title">{genreTitle}</h2>
         <div className="comic-display">
-          {view}
+          <CSSTransitionGroup
+            transitionName="example"
+            transitionEnterTimeout={5000}
+            transitionLeaveTimeout={3000}>
+            {view}
+          </CSSTransitionGroup>
         </div>
       </div>
     );

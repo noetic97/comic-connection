@@ -54,6 +54,5 @@ const createComics = (genre, comic) => {
   const id = comic.results.volume.id;
   const cover = comic.results.image.super_url;
   const comicBooks = new ComicBook(name, description, cover, id, comicGenre);
-  console.log(comicBooks);
   return comicBooks;
 };
