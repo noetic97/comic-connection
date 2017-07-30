@@ -1,12 +1,6 @@
 import { connect } from 'react-redux';
-import { returnGenre, fetchComics } from '../actions';
+import { fetchComics } from '../actions';
 import ComicSelector from '../components/ComicSelector/ComicSelector';
-
-const mapStateToProps = (state) => {
-  return {
-    comics: state.comics,
-  };
-};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -16,4 +10,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ComicSelector);
+export default connect(null, mapDispatchToProps)(ComicSelector);

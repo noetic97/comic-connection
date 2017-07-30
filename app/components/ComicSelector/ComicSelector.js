@@ -49,4 +49,5 @@ export default class ComicSelector extends Component {
 
 ComicSelector.propTypes = {
   getComicBooks: func,
+  isLoading: func,
 };

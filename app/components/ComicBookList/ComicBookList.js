@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ComicBook from '../ComicBook/ComicBook';
+import Loader from '../Loader/Loader';
 import ComicSelectorContainer from '../../containers/ComicSelectorContainer';
-import { array, object } from 'prop-types';
+import { array, object, bool } from 'prop-types';
 
 export default class ComicBookList extends Component {
   constructor() {
@@ -14,11 +15,14 @@ export default class ComicBookList extends Component {
                         comic={ comic }
                         key={ comic.id } />;
     });
+    const view = this.props.isLoading ? <Loader /> : comicArray;
+    const genreTitle = (comicArray.length) ? comicArray[0].props.comic.comicGenre : null;
     return (
       <div>
         <ComicSelectorContainer />
+        <h2 className="genre-title">{genreTitle}</h2>
         <div className="comic-display">
-          {comicArray}
+          {view}
         </div>
       </div>
     );
@@ -28,4 +32,5 @@ export default class ComicBookList extends Component {
 ComicBookList.propTypes = {
   comics: array,
   history: object,
+  isLoading: bool,
 };

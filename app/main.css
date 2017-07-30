@@ -5,6 +5,7 @@
 @import url("./components/Login/login.css");
 @import url("./components/Signup/signup.css");
 @import url("./components/ComicSelector/comic-selector.css");
+@import url("./components/Loader/loader.css");
 
 * {
   box-sizing: border-box;

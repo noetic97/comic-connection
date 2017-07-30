@@ -6,3 +6,12 @@ export const comics = (state = [], action) => {
     return state;
   }
 };
+
+export const isLoading = (state = false, action) => {
+  switch (action.type) {
+  case 'COMICS_LOADING':
+    return action.bool;
+  default:
+    return state;
+  }
+};
