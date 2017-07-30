@@ -15,9 +15,6 @@ const Header = () => {
           <NavLink className="nav-link"
                    to="/saved-comics">Saved Comics
           </NavLink>
-          <NavLink className="nav-link"
-                   to="/comic-stores">Buy Comics!
-          </NavLink>
         </div>
         <div className="user-cred-buttons">
           <NavLink to="/login">
