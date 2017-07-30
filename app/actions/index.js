@@ -3,9 +3,13 @@ import { PROXY_URL } from '../helpers/constants';
 
 export const fetchComics = (genre) => {
   return (dispatch) => {
+    dispatch(isLoading(true));
     fetchSelectedGenre(genre)
     .then(res => Promise.all(res))
-    .then(items => dispatch(comicBookArray(items)))
+    .then(items => {
+      dispatch(comicBookArray(items));
+      dispatch(isLoading(false));
+    })
     .catch(err => console.log(err));
   };
 };
@@ -14,6 +18,13 @@ export const comicBookArray = (comics) => {
   return {
     type: 'ADD_COMICS_TO_STORE',
     comics,
+  };
+};
+
+export const isLoading = (bool) => {
+  return {
+    type: 'COMICS_LOADING',
+    bool,
   };
 };
 
@@ -57,9 +68,9 @@ export const postSignupUser = (signupCreds) => {
     if (!response.ok) {
       throw Error(response.statusText);
     }
-    return response;
+    return response.json();
   })
-  .then(response => response.json())
+  // .then(response => response.json())
   .then(userData => console.log(userData));
   };
 };

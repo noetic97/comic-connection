@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
-import { returnGenre, fetchComics } from '../actions';
+import { fetchComics, isLoading } from '../actions';
 import ComicBookList from '../components/ComicBookList/ComicBookList';
 
 const mapStateToProps = (state) => {
   return {
     comics: state.comics,
+    isLoading: state.isLoading,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getComicBooks: (genre) => {
-      dispatch(fetchComics(genre));
+    toggleLoading: (bool) => {
+      dispatch(isLoading(bool));
     },
   };
 };

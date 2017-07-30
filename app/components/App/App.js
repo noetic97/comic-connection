@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
 import Header from '../Header/Header';
+import Loader from '../Loader/Loader';
 import ComicStoreMap from '../ComicStoreMap/ComicStoreMap';
 import LoginContainer from '../../containers/LoginContainer';
 import SignupContainer from '../../containers/SignupContainer';
