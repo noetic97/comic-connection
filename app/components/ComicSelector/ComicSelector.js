@@ -41,7 +41,8 @@ export default class ComicSelector extends Component {
           <option value="Superhero">Superhero</option>
         </select>
         <button className="get-comics-button"
-                onClick={this.handleClick.bind(this)}>Get Random Comics</button>
+                // onClick={this.handleClick.bind(this)}
+                >Get Random Comics</button>
       </div>
     );
   }

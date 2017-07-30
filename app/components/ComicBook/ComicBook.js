@@ -1,4 +1,5 @@
 import React from 'react';
+import { object } from 'prop-types';
 
 const ComicBook = (props) => {
   return (
@@ -15,3 +16,7 @@ const ComicBook = (props) => {
 };
 
 export default ComicBook;
+
+ComicBook.propTypes = {
+  comic: object,
+};

@@ -1,111 +1,63 @@
 import * as actions from '../actions';
-import fetchMock from 'fetch-mock';
-import React from 'react';
-import { mount  } from 'enzyme';
-import { Provider } from 'react-redux';
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import APIkey from '../APIkey';
 
 describe('actions', () => {
-
-  it.skip('fetchMovieData should return a successful fetch', async () => {
-    const movieUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`
-    const resolveAfter2Seconds = () => new Promise(resolve => setTimeout(() => resolve(), 2000))
-
-    fetchMock.get(movieUrl, { status: 200, body: {successMsg: 'YAY' }})
-
-    await resolveAfter2Seconds()
-
-    expect(fetchMock.called()).toBe(true)
-  })
-
-  it('fetchHasErrored should return a boolean', () => {
-    const fetchError = true;
+  it('comicBookArray should return an array', () => {
+    const comics = [{
+      title: 'Saga',
+      id: '1345',
+      description: 'blah, blah blah',
+    }];
     const expectedState =  {
-      type: 'FETCH_HAS_ERRORED',
-      hasErrored: true
+      type: 'ADD_COMICS_TO_STORE',
+      comics,
     };
 
-    expect(actions.fetchHasErrored(fetchError)).toEqual(expectedState)
-  })
+    expect(actions.comicBookArray(comics)).toEqual(expectedState);
+  });
 
-  it('fetchIsLoading should return a boolean', () => {
-    const fetchLoading = true;
+  it('isLoading should return a boolean', () => {
     const expectedState =  {
-      type: 'FETCH_IS_LOADING',
-      isLoading: true
+      type: 'COMICS_LOADING',
+      bool: false,
     };
 
-    expect(actions.fetchIsLoading(fetchLoading)).toEqual(expectedState)
-  })
-
-  it('moviesFetchDataSuccess should return an object', () => {
-    const movieObject = {};
-    const expectedState =  {
-      type: 'MOVIES_FETCH_DATA_SUCCESS',
-      movies: {}
-    };
-
-    expect(actions.moviesFetchDataSuccess(movieObject)).toEqual(expectedState)
-  })
-
-  it('createUser should return an object', () => {
-    const createUserCreds = {
-      name: 'joe',
-      email: 'joe@joe.joe',
-      password: 'joeeojjoeeoj'
-    };
-
-    const expectedState =  {
-      type: 'CREATE_USER',
-      userCreds: createUserCreds
-    };
-
-    expect(actions.createUser(createUserCreds)).toEqual(expectedState)
-  })
+    expect(actions.isLoading(false)).toEqual(expectedState);
+    expect(actions.isLoading(true)).not.toEqual(expectedState);
+  });
 
   it('loginUser should return an object', () => {
-    const logInCreds = {
-      email: 'suhdude@itslit.com',
-      password: 'whytho'
+    const userCreds = {
+      email: 'joe@joe.joe',
+      pasword: 'supersneaky',
     };
     const expectedState =  {
       type: 'LOGIN_USER',
-      userCreds: logInCreds
+      loginCreds: userCreds,
     };
 
-    expect(actions.loginUser(logInCreds)).toEqual(expectedState)
-  })
+    expect(actions.loginUser(userCreds)).toEqual(expectedState);
+  });
 
-  it('logOutUser should dispatch an action', () => {
+  it('logOutUser should return nothing', () => {
     const expectedState =  {
-      type: 'LOGGED_OUT_USER',
+      type: 'LOGOUT_USER',
     };
 
-    expect(actions.logOutUser()).toEqual(expectedState)
-  })
+    expect(actions.logOutUser()).toEqual(expectedState);
+  });
 
-  it('userFavorites should return an objject', () => {
-    const data = {
-      status: 'success',
-      data: [
-        {
-        id: 5,
-        movie_id: 324852,
-        overview: "Gru and his wife Lucy .",
-        poster_path: "https://image.tmdb.org/t/p/w500/5qcUGqWoWhEsoQwNUrtf3y3fcWn.jpg",
-        release_date: "2017-06-29",
-        title: "Despicable Me 3",
-        user_id: 1,
-        vote_average: "6.1"}
-      ]
+  it('signupUser should return an object', () => {
+    const signupMock = {
+      name: 'ME',
+      username: 'NOTYOU',
+      email: 'we@us.com',
+      password: 'NeverGuessMe',
     };
     const expectedState =  {
-      type: 'USER_FAVORITES',
-      userFavorites: data
+      type: 'SIGNUP_USER',
+      signupCreds: signupMock,
     };
-    expect(actions.userFavorites(data)).toEqual(expectedState)
-  })
 
-})
+    expect(actions.signupUser(signupMock)).toEqual(expectedState);
+  });
+});
