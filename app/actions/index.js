@@ -86,3 +86,10 @@ export const signupUser = (signupCreds) => {
     signupCreds,
   };
 };
+
+export const saveComic = (comic) => {
+  return {
+    type: 'ADD_SAVED_COMIC',
+    comic,
+  };
+};

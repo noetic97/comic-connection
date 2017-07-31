@@ -25,3 +25,13 @@ export const imagesLoading = (state = false, action) => {
     return state;
   }
 };
+
+export const savedComics = (state = [], action) => {
+  switch (action.type) {
+  case 'ADD_SAVED_COMIC':
+  console.log(action.comic, 'action');
+    return action.comic;
+  default:
+    return state;
+  }
+};

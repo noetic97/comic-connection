@@ -6,6 +6,10 @@ describe('ComicSelector.js', () => {
   const mockFn = jest.fn();
   const wrapper = shallow(<ComicSelector getComicBooks={mockFn} />);
 
+  beforeEach(() => {
+    mockFn.mockReset();
+  });
+
   it('should render the correct component when it mounts', () => {
     expect(wrapper.find('.genre-selector').length).toBe(1);
     expect(wrapper.find('button').length).toBe(1);
@@ -36,7 +40,6 @@ describe('ComicSelector.js', () => {
   });
 
   it('should run a function when the button is clicked', () => {
-    mockFn.mockReset();
     const button = wrapper.find('button');
 
     expect(mockFn).toHaveBeenCalledTimes(0);

@@ -6,8 +6,15 @@ import ComicSelectorContainer from '../../containers/ComicSelectorContainer';
 import { array, object, bool, func } from 'prop-types';
 
 export default class ComicBookList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+  }
+
+  saveComic(e) {
+    e.preventDefault()
+    this.props.comics.map((comic) => {
+      console.log(comic.id);
+    });
   }
 
   render() {
@@ -15,6 +22,7 @@ export default class ComicBookList extends Component {
       return <ComicBook history={ this.props.history }
                         comic={ comic }
                         loadImages={ this.props.loadImages }
+                        saveComic={ (e) => this.saveComic(e) }
                         key={ comic.id } />;
     });
     const view = this.props.isLoading
@@ -46,5 +54,6 @@ ComicBookList.propTypes = {
   history: object,
   isLoading: bool,
   loadImages: func,
+  saveComic: func,
   imagesLoading: bool,
 };
