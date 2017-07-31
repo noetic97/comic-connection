@@ -3,7 +3,7 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import ComicBook from '../ComicBook/ComicBook';
 import Loader from '../Loader/Loader';
 import ComicSelectorContainer from '../../containers/ComicSelectorContainer';
-import { array, object, bool } from 'prop-types';
+import { array, object, bool, func } from 'prop-types';
 
 export default class ComicBookList extends Component {
   constructor() {
@@ -14,9 +14,10 @@ export default class ComicBookList extends Component {
     const comicArray = this.props.comics.map((comic) => {
       return <ComicBook history={ this.props.history }
                         comic={ comic }
+                        loadImages={ this.props.loadImages }
                         key={ comic.id } />;
     });
-    const view = this.props.isLoading
+    const view = this.props.isLoading && this.props.imagesLoading
                ? <Loader key={Math.random()}/>
                : comicArray;
     const genreTitle = (comicArray.length)
@@ -26,15 +27,14 @@ export default class ComicBookList extends Component {
       <div>
         <ComicSelectorContainer />
         <h2 className="genre-title">{genreTitle}</h2>
-        {/* <div className="comic-display"> */}
           <CSSTransitionGroup
             className="comic-display"
             transitionName="example"
             transitionEnterTimeout={1000}
-            transitionLeaveTimeout={0}>
+            transitionLeaveTimeout={0}
+            >
             {view}
           </CSSTransitionGroup>
-        {/* </div> */}
       </div>
     );
   }
@@ -44,4 +44,6 @@ ComicBookList.propTypes = {
   comics: array,
   history: object,
   isLoading: bool,
+  loadImages: func,
+  imagesLoading: bool,
 };

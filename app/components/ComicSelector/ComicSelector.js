@@ -6,7 +6,8 @@ export default class ComicSelector extends Component {
     super();
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    console.log(this.props, 'in will');
     this.props.getComicBooks('Random');
   }
 

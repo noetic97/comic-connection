@@ -31,8 +31,8 @@ export const fetchSelectedGenre = (genre) => {
   return Promise.all(arrayOfPromises)
   .then(comicVolumeArray => {
     const comicVolumes = returnComics(passedGenre, comicVolumeArray);
-    // console.log(comicVolumes, 'cv');
-    return comicVolumes;
+    return Promise.all(comicVolumes)
+    .then(res => res);
   });
 };
 
@@ -54,7 +54,7 @@ const createComics = (genre, comic) => {
                     ? comic.results.description.replace(/<[^>]+>/g, '')
                     : '';
   const id = comic.results.volume.id;
-  const cover = comic.results.image.super_url;
+  const cover = comic.results.image.small_url;
   const comicBooks = new ComicBook(name, description, cover, id, comicGenre);
   return comicBooks;
 };
