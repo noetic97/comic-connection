@@ -26,14 +26,15 @@ export default class ComicBookList extends Component {
       <div>
         <ComicSelectorContainer />
         <h2 className="genre-title">{genreTitle}</h2>
-        <div className="comic-display">
+        {/* <div className="comic-display"> */}
           <CSSTransitionGroup
+            className="comic-display"
             transitionName="example"
-            transitionEnterTimeout={5000}
-            transitionLeaveTimeout={3000}>
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={0}>
             {view}
           </CSSTransitionGroup>
-        </div>
+        {/* </div> */}
       </div>
     );
   }

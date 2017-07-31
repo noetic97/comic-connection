@@ -17,6 +17,9 @@ const randomizeGenre = (obj) => {
 
 export const fetchSelectedGenre = (genre) => {
   const randomGenre = randomizeGenre(curatedGenres);
+  const passedGenre = (genre !== 'Random')
+                    ? genre
+                    : randomGenre;
   const selectedComic = (genre !== 'Random')
                       ? findGenre(genre, curatedGenres)
                       : findGenre(randomGenre, curatedGenres);
@@ -27,15 +30,14 @@ export const fetchSelectedGenre = (genre) => {
   });
   return Promise.all(arrayOfPromises)
   .then(comicVolumeArray => {
-    const comicVolumes = returnComics(randomGenre, comicVolumeArray);
-    console.log(comicVolumes, 'cv');
+    const comicVolumes = returnComics(passedGenre, comicVolumeArray);
+    // console.log(comicVolumes, 'cv');
     return comicVolumes;
-  })
+  });
 };
 
 
 const returnComics = (genre, array) => {
-  console.log(array, 'in fetch');
   return array.map((comic) => {
     const firstComic = comic.results.issues[0].api_detail_url;
     return fetch(PROXY_URL + firstComic + API)

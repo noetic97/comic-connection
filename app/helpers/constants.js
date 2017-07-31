@@ -1,12 +1,8 @@
 import { APIkey } from '../../apiKey';
-import { randomGenre } from './fetch-calls';
 
 export const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
 export const BASE_URL = 'https://comicvine.gamespot.com/api/';
 export const API = '/?api_key=' + APIkey + '&format=json';
-
-export const RANDOM_COMIC_URL = `${BASE_URL}${randomGenre}${API}`;
-// export const SELECTED_COMIC_URL = `${BASE_URL}${selectedVolume}${API}`;
 
 export const randomGenreList = {
   'Science-Fiction': 'concept/4015-56103',

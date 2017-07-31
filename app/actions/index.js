@@ -1,5 +1,4 @@
 import { fetchSelectedGenre } from '../helpers/fetch-calls';
-import { PROXY_URL } from '../helpers/constants';
 
 export const fetchComics = (genre) => {
   return (dispatch) => {

@@ -12,7 +12,7 @@
 
 .example-enter.example-enter-active {
   opacity: 1;
-  transition: opacity 5000ms ease-in;
+  transition: opacity 1000ms ease-in;
 }
 
 .example-leave {
@@ -21,7 +21,7 @@
 
 .example-leave.example-leave-active {
   opacity: 0.01;
-  transition: opacity 3000ms ease-in;
+  transition: opacity 0 ease-in;
 }
 
 @media (min-width: 650px) {

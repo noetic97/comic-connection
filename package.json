@@ -64,6 +64,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express-cors": "0.0.3",
+    "fetch-mock": "^5.12.1",
     "nodemon": "^1.11.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
