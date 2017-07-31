@@ -1,3 +1,9 @@
+.genre-title {
+  font-size: 50px;
+  text-align: center;
+}
+
+.display-container,
 .comic-display {
   display: grid;
   grid-row-gap: 20px;

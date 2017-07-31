@@ -17,24 +17,25 @@ export default class ComicBookList extends Component {
                         loadImages={ this.props.loadImages }
                         key={ comic.id } />;
     });
-    const view = this.props.isLoading && this.props.imagesLoading
+    const view = this.props.isLoading
                ? <Loader key={Math.random()}/>
                : comicArray;
-    const genreTitle = (comicArray.length)
-                     ? comicArray[0].props.comic.comicGenre
+    const genreTitle = (comicArray.length && !this.props.isLoading)
+                     ? `Check out these amazing ${comicArray[0].props.comic.comicGenre} comics!!`
                      : null;
     return (
       <div>
         <ComicSelectorContainer />
         <h2 className="genre-title">{genreTitle}</h2>
-          <CSSTransitionGroup
-            className="comic-display"
-            transitionName="example"
-            transitionEnterTimeout={1000}
-            transitionLeaveTimeout={0}
-            >
-            {view}
-          </CSSTransitionGroup>
+          <div className="display-container">
+            <CSSTransitionGroup
+              className="comic-display"
+              transitionName="example"
+              transitionEnterTimeout={1000}
+              transitionLeaveTimeout={0}>
+              {view}
+            </CSSTransitionGroup>
+          </div>
       </div>
     );
   }
