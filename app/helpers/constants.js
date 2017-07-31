@@ -1,5 +1,4 @@
 import { APIkey } from '../../apiKey';
-import { randomGenre } from './fetch-calls';
 
 export const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
 export const BASE_URL = 'https://comicvine.gamespot.com/api/';
