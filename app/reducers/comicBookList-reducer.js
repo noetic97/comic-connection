@@ -15,3 +15,13 @@ export const isLoading = (state = false, action) => {
     return state;
   }
 };
+
+
+export const imagesLoading = (state = false, action) => {
+  switch (action.type) {
+  case 'IMAGES_LOADED':
+    return true;
+  default:
+    return state;
+  }
+};

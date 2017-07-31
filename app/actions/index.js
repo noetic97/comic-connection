@@ -2,11 +2,11 @@ import { fetchSelectedGenre } from '../helpers/fetch-calls';
 
 export const fetchComics = (genre) => {
   return (dispatch) => {
-    dispatch(isLoading(true));
+    dispatch(isLoading(true))
+    dispatch(handleImages());
     fetchSelectedGenre(genre)
-    .then(res => Promise.all(res))
-    .then(items => {
-      dispatch(comicBookArray(items));
+    .then(res => {
+      dispatch(comicBookArray(res));
       dispatch(isLoading(false));
     })
     .catch(err => console.log(err));
@@ -24,6 +24,12 @@ export const isLoading = (bool) => {
   return {
     type: 'COMICS_LOADING',
     bool,
+  };
+};
+
+export const handleImages = () => {
+  return {
+    type: 'IMAGES_LOADED',
   };
 };
 
