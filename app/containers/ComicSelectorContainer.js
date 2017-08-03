@@ -5,6 +5,7 @@ import ComicSelector from '../components/ComicSelector/ComicSelector';
 const mapStateToProps = (state) => {
   return {
     imagesLoading: state.imagesLoading,
+    comics: state.comics,
   };
 };
 

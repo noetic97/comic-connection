@@ -87,9 +87,17 @@ export const signupUser = (signupCreds) => {
   };
 };
 
-export const saveComic = (comic) => {
+export const saveComic = (comic, id) => {
   return {
     type: 'ADD_SAVED_COMIC',
     comic,
+    id,
+  };
+};
+
+export const removeSavedComic = (id) => {
+  return {
+    type: 'REMOVE_SAVED_COMIC',
+    id,
   };
 };
