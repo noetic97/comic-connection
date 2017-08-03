@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
 import Header from '../Header/Header';
-import Loader from '../Loader/Loader';
 import LoginContainer from '../../containers/LoginContainer';
 import SignupContainer from '../../containers/SignupContainer';
 import ComicBookListContainer from '../../containers/ComicBookListContainer';
+import SavedComicsContainer from '../../containers/SavedComicsContainer';
 
 export default class App extends Component {
   constructor() {
@@ -23,7 +23,11 @@ export default class App extends Component {
                exact
                component={SignupContainer} />
         <Route path="/"
+               exact
                component={ComicBookListContainer} />
+        <Route path="/saved-comics"
+               exact
+               component={SavedComicsContainer} />
       </div>
     );
   }

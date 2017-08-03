@@ -2,9 +2,7 @@
   height: 575px;
   width: 300px;
   margin: 25px;
-  /*position: relative;*/
 }
-
 
 .comic-title {
   color: rgb(130, 35, 19);
@@ -50,4 +48,14 @@
   overflow: scroll;
   margin-bottom: 25px;
   font-size: 20px;
+}
+
+.save-button {
+  width:200px;
+  font-size: 24px;
+  padding: 5px;
+  background-color: #3d6481;
+}
+.save-button.active {
+  background-color: rgba(130, 35, 19, 1);
 }

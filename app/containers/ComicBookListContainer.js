@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { handleImages, saveComic } from '../actions';
+import { handleImages, saveComic, removeSavedComic, isSaved } from '../actions';
 import ComicBookList from '../components/ComicBookList/ComicBookList';
 
 const mapStateToProps = (state) => {
@@ -8,6 +8,7 @@ const mapStateToProps = (state) => {
     isLoading: state.isLoading,
     imagesLoading: state.imagesLoading,
     savedComics: state.savedComics,
+    isSaved: state.isSaved,
   };
 };
 
@@ -16,8 +17,14 @@ const mapDispatchToProps = (dispatch) => {
     loadImages: () => {
       dispatch(handleImages());
     },
-    saveComic: (comic) => {
-      dispatch(saveComic(comic));
+    saveComic: (comic, id) => {
+      dispatch(saveComic(comic, id));
+    },
+    removeSavedComic: (id) => {
+      dispatch(removeSavedComic(id));
+    },
+    isSavedToggle: (bool) => {
+      dispatch(isSaved(bool));
     },
   };
 };

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { func } from 'prop-types';
+import { func, array } from 'prop-types';
 
 export default class ComicSelector extends Component {
   constructor() {
@@ -7,7 +7,9 @@ export default class ComicSelector extends Component {
   }
 
   componentWillMount() {
-    this.props.getComicBooks('Random');
+    if (!this.props.comics.length) {
+      this.props.getComicBooks('Random');
+    }
   }
 
   handleChange(e) {
@@ -51,4 +53,5 @@ export default class ComicSelector extends Component {
 ComicSelector.propTypes = {
   getComicBooks: func,
   isLoading: func,
+  comics: array,
 };

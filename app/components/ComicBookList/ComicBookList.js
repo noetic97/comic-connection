@@ -10,19 +10,26 @@ export default class ComicBookList extends Component {
     super(props);
   }
 
-  saveComic(e) {
-    e.preventDefault()
-    this.props.comics.map((comic) => {
-      console.log(comic.id);
-    });
+  toggleComic(comic, id) {
+    if (this.props.savedComics.length) {
+      const savedKeys = this.props.savedComics.map(elem => Object.keys(elem)[0]);
+      if (savedKeys.includes(id.toString())) {
+        this.props.removeSavedComic(id);
+        !this.props.isSaved;
+        return;
+      }
+    }
+    this.props.saveComic(comic, id);
+    !this.props.isSaved;
   }
 
   render() {
     const comicArray = this.props.comics.map((comic) => {
       return <ComicBook history={ this.props.history }
                         comic={ comic }
-                        loadImages={ this.props.loadImages }
-                        saveComic={ (e) => this.saveComic(e) }
+                        isSaved={ this.props.isSaved }
+                        saveComic={ () => this.toggleComic(comic, comic.id) }
+                        savedComics={ this.props.savedComics }
                         key={ comic.id } />;
     });
     const view = this.props.isLoading
@@ -55,5 +62,7 @@ ComicBookList.propTypes = {
   isLoading: bool,
   loadImages: func,
   saveComic: func,
-  imagesLoading: bool,
+  isSaved: bool,
+  savedComics: array,
+  removeSavedComic: func,
 };
